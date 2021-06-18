@@ -1,13 +1,19 @@
-import React from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
+
+
+
 const Favorites = (props) => {
-    const data = props.teams
+    const  data  = props.favTeams;
+    console.log(data)
+    //console.log(teamInfo.teamData.team.city)
     const styles = {
-        cardHolder: { display: "flex", width: "100%", flexWrap: "wrap", justifyContent: "space-around", paddingTop: 10 },
-        cardStyle: { marginBottom: 10, width: '18rem' }
+        cardHolder: { display: "flex", width: "100%", flexWrap: "wrap", justifyContent: "space-around" ,paddingTop: 10},
+        cardStyle: {marginBottom: 10, width: '18rem'}
     }
+    
     return (
         <div className="teamName">
             <div style={styles.cardHolder}>
@@ -19,12 +25,12 @@ const Favorites = (props) => {
                             <Card.Title>{team.city}</Card.Title>
                             <Card.Text>
                                 <span>{team.full_name}</span>
-                                <br />
+                                <br/>
                                 <span> {team.conference}</span>
-                                <br />
+                                <br/>
                                 <span> {team.division}</span>
                             </Card.Text>
-                            <Button onClick={() => props.deleteOption(i, data)} variant="primary">Delete Option</Button>
+                            <Button onClick={()=> props.deleteOption(team.id,data, i)} variant="primary">Delete Option</Button>
                         </Card.Body>
                     </Card>
                 )
