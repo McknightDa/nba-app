@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { connect } from 'react-redux'
 
 const Favorites = (props) => {
     const data = props.teams
@@ -19,12 +20,12 @@ const Favorites = (props) => {
                             <Card.Title>{team.city}</Card.Title>
                             <Card.Text>
                                 <span>{team.full_name}</span>
-                                <br />
+                                <br/>
                                 <span> {team.conference}</span>
-                                <br />
+                                <br/>
                                 <span> {team.division}</span>
                             </Card.Text>
-                            <Button onClick={() => props.deleteOption(i, data)} variant="primary">Delete Option</Button>
+                            <Button onClick={()=> props.deleteOption(team.id,data, i)} variant="primary">Delete Option</Button>
                         </Card.Body>
                     </Card>
                 )
@@ -34,5 +35,13 @@ const Favorites = (props) => {
         </div>
     )
 }
+const mapStateToProps = (state) => {
+    console.log(state)
 
-export default Favorites
+    return {
+        basic: state.basicReducer.hello
+    }
+}
+
+
+export default connect(mapStateToProps)(Favorites)
