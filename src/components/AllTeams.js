@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button'
 
 
 
+
 const AllTeams = (props) => {
+    const teams = useSelector((state)=>state)
+    console.log(teams)
     const  data  = props.teamInfo;
     //console.log(props.teamInfo)
     //console.log(teamInfo.teamData.team.city)

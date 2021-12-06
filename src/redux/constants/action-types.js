@@ -1,0 +1,6 @@
+export const ActionTypes = {
+    ALL_TEAMS:"ALL_TEAMS",
+    ADD_OPTION: "ADD_OPTION",
+    DELETE_OPTION: "DELETE_OPTION",
+    UPDATE_STATE: "UPDATE_STATE"
+}
